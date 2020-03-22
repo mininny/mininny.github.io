@@ -11,10 +11,10 @@ name                     : "Minhyuk Kim"
 description              : "Mininny's mini blog."
 url                      : "https://mininny.github.io"
 baseurl                  : ""
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+repository               : mininny/mininny.github.io
+# teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+# logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+# masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -91,15 +91,12 @@ author:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://mininny.github.io"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/mininny1004"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin-in"
+      url: "https://www.linkedin.com/in/mininnykim/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mininny"
-    # - label: "Instagram"
-    #   icon: "fab fa-fw fa-instagram"
-    #   # url: "https://instagram.com/"
 
 # Site Footer
 footer:
@@ -113,9 +110,9 @@ footer:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://mininny.github.io"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/mininny1004"
+    - label: "Linkedin"
+      icon: "fab fa-linkedin-in"
+      url: "https://www.linkedin.com/in/mininnykim/"
 
 
 # Reading Files
@@ -244,12 +241,6 @@ collections:
   iOS:
     output: true
     permalink: /:collection/:path/
-  pets:
-    output: true
-    permalink: /:collection/:path/
-  policies:
-    output: true
-    permalink: /:collection/:path/
 
 
 # Defaults
@@ -274,7 +265,7 @@ defaults:
       author_profile: true
     # _iOS
   - scope:
-      path: ""
+      path: "_iOS"
       type: iOS
     values:
       layout: single
@@ -284,39 +275,25 @@ defaults:
       comments: true
   # _app_stuff
   - scope:
-      path: ""
+      path: "_app_stuff"
       type: app_stuff
     values:
       layout: single
       read_time: true
-      author_profile: true
+      author_profile: false
       share: false
       comments: false
       sidebar:
         nav: "app_stuff"
-  # _recipes
+  # _app_stuff
   - scope:
       path: ""
-      type: recipes
+      type: about_me
     values:
       layout: single
-      author_profile: true
-      share: true
-      comments: true
-  # _pets
-  - scope:
-      path: ""
-      type: pets
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
-  # _portfolio
-  - scope:
-      path: ""
-      type: portfolio
-    values:
-      layout: single
+      read_time: false
       author_profile: false
-      share: true
+      share: false
+      comments: false
+      sidebar:
+        nav: "about_me"
