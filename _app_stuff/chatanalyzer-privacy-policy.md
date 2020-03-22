@@ -14,9 +14,7 @@ We use your data to provide and improve the Service. By using the Service, you a
 ### Information Collection And Use
 We collect several different types of information for various purposes to provide and improve our Service to you.
 #### Types of Data Collected
-While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to:
-
-Other information.
+While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data").
 > You may choose to provide other information directly to us. For example, we may collect information when you submit a chat data. These data are not transmitted outside the application
 
 **When you access the Service with a mobile device, we may collect certain information automatically, including, but not limited to, the type of mobile device you use, your mobile device unique ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browser you use, unique device identifiers and other diagnostic data ("Usage Data").**
