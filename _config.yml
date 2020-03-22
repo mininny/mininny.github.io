@@ -241,6 +241,12 @@ collections:
   iOS:
     output: true
     permalink: /:collection/:path/
+  knowledge_base:
+    output: true
+    permalink: /:collection/:path/
+  translation:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Defaults
@@ -285,7 +291,31 @@ defaults:
       comments: false
       sidebar:
         nav: "app_stuff"
-  # _app_stuff
+  # _knowledge_base
+  - scope:
+      path: "_knowledge_base"
+      type: knowledge_base
+    values:
+      layout: single
+      read_time: true
+      author_profile: true
+      share: true
+      comments: true
+      sidebar:
+        nav: "knowledge_base"
+  # _translation
+  - scope:
+      path: "_translation"
+      type: translation
+    values:
+      layout: single
+      read_time: true
+      author_profile: false
+      share: false
+      comments: false
+      sidebar:
+        nav: "translation"
+  # about_me
   - scope:
       path: ""
       type: about_me

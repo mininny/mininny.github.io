@@ -2,10 +2,14 @@
 main:
   - title: "Posts"
     url: /year-archive/
-  - title: "App stuff"
-    url: /app_stuff/
   - title: "iOS"
     url: /iOS/
+  - title: "Knowledge Base"
+    url: /knowledge_base/
+  - title: "Translation"
+    url: /translation/
+  - title: "App stuff"
+    url: /app_stuff/
   - title: "Collections"
     url: /collection-archive/
   - title: "About me"
