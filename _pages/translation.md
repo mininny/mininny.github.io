@@ -1,8 +1,8 @@
 ---
 title: Translated Works
-layout: collection
+layout: category
 permalink: /translation/
-collection: translation
+taxonomy: translation
 entries_layout: grid
 classes: wide
 # header:

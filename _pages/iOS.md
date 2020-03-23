@@ -1,10 +1,11 @@
 ---
 title: iOS
-layout: collection
+layout: category
 permalink: /iOS/
-collection: iOS
-entries_layout: grid
+taxonomy: iOS
 classes: wide
+sort_by: date
+sort_order: reverse
 header:
   overlay_image: /assets/images/splash-image-macbook.jpg
 ---

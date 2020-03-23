@@ -1,8 +1,8 @@
 ---
 title: Misc
-layout: collection
+layout: category
 permalink: /knowledge_base/
-collection: knowledge_base
+taxonomy: knowledge_base
 classes: wide
 sort_by: date
 sort_order: reverse
