@@ -1,8 +1,8 @@
 ---
 title: iOS
 layout: category
-permalink: /iOS/
-taxonomy: iOS
+permalink: /ios/
+taxonomy: ios
 classes: wide
 sort_by: date
 sort_order: reverse

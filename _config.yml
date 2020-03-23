@@ -222,7 +222,7 @@ jekyll-archives:
     category: /:name/
     tag: /:name/
 
-category_list: [ iOS, knowledge_base, translation ]
+category_list: [ ios, knowledge_base, translation ]
 
 # HTML Compression
 # - https://jch.penibelst.de/
@@ -260,8 +260,8 @@ defaults:
       author_profile: true
     # _iOS
   - scope:
-      path: "_iOS"
-      type: iOS
+      path: "_ios"
+      type: ios
     values:
       layout: single
       read_time: true

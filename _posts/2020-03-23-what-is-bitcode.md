@@ -1,6 +1,6 @@
 ---
 title:  "What is Bitcode?"
-category: iOS
+category: ios
 date: 2020-03-23
 ---
 
