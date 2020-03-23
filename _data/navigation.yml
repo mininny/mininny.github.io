@@ -10,7 +10,5 @@ main:
     url: /translation/
   - title: "App stuff"
     url: /app_stuff/
-  - title: "Collections"
-    url: /collection-archive/
   - title: "About me"
     url: /about_me/

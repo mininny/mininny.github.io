@@ -87,7 +87,7 @@ author:
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://mininny.github.io"
+      url: "https://www.mininny.dev"
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin-in"
       url: "https://www.linkedin.com/in/mininnykim/"
@@ -106,7 +106,7 @@ footer:
       url: mailto:mininny1004@email.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://mininny.github.io"
+      url: "https://www.mininny.dev"
     - label: "Linkedin"
       icon: "fab fa-linkedin-in"
       url: "https://www.linkedin.com/in/mininnykim/"
@@ -236,7 +236,9 @@ collections:
   app_stuff:
     output: true
     permalink: /:collection/:path/
-
+  temp_guide:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
@@ -316,3 +318,13 @@ defaults:
       comments: false
       sidebar:
         nav: "about_me"
+  # _temp_guide
+  - scope:
+      path: "_temp_guide"
+      type: temp_guide
+    values:
+      layout: single
+      read_time: true
+      author_profile: false
+      share: false
+      comments: false
