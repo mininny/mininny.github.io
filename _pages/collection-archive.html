@@ -20,6 +20,9 @@ author_profile: true
       {% elsif label == "translation" %}
         <h2 id="{{ label | slugify }}" class="archive__subtitle">{{ "Translation" }}</h2>
         {% capture written_label %}{{ "Translation" }}{% endcapture %}
+      {% else %}
+        <h2 id="{{ label | slugify }}" class="archive__subtitle">{{ label }}</h2>
+        {% capture written_label %}{{ label }}{% endcapture %}
       {% endif %}
     {% endif %}
   {% endunless %}
