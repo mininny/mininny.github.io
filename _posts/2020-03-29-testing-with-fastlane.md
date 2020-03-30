@@ -154,7 +154,7 @@ xcrun xccov merge --outReport OUTPUT_PATH/out.xccovreport --outArchive OUTPUT_PA
 
 I integrated this change in [my own PR](https://github.com/fastlane-community/xcov/pull/173), so if you'd like to generate a single test coverage report for multiple test schemes, you can add 
 ```
-gem 'xcov', :git => "https://github.com/sendbird/calls-ios.git"
+gem 'xcov', :git => "https://github.com/mininny/xcov.git"
 ``` 
 to your Gemfile.
 
