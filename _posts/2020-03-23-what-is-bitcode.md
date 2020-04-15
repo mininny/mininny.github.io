@@ -4,7 +4,8 @@ category: ios
 date: 2020-03-23
 ---
 
-> This section is work in progress. 
+Contents of this post will continue to be added.
+{: .notice--info}
 
 # What is Bitcode?
 
@@ -35,5 +36,19 @@ Because bitcode contains the binaries of the architectures separately, the initi
 Including bitcode will allow Apple to re-optimize your app binary in the future without the need to submit a new version of your app to the store. 
 
 **Note:** In order to support bitcode in a project, all frameworks and libraries that the project uses should also have bitcode enabled. Otherwise, you will get an error when you try to upload your app to AppstoreConnect. 
+
+# Working with Bitcode-enabled frameworks. 
+Because bitcode-enabled frameworks are fat frameworks that include multiple architectures, its size is inevitably larger than the normal frameworks that just merges the different architectures altogether.  
+
+However, there may be instances when you need a smaller framework or need to strip some architectures.
+
+Here is how you can extract specific architectures from a fat framweork:
+```
+lipo FRAMEWORK_NAME -extract ARCHITECTURE -o OUTPUT_FILENAME
+```
+You can also strip specific architecture from a fat framework to reduce its size:
+```
+xcrun bitcode_strip -r FRAMEWORK_NAME -o OUTPUT_FILENAME
+```
 
 Something related to Bitcode is App Thinning, which we will look at later.
