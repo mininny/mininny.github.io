@@ -76,7 +76,6 @@ body {
     margin-top: -0.5em;
   }
 }
-
 .page__lead {
   font-family: $global-font-family;
   font-size: $type-size-4;
@@ -279,7 +278,7 @@ body {
    ========================================================================== */
 
 .page__meta {
-  margin-top: 2em;
+  margin-top: 0;
   color: $muted-text-color;
   font-family: $sans-serif;
   font-size: $type-size-6;
