@@ -222,7 +222,7 @@ jekyll-archives:
     category: /:name/
     tag: /:name/
 
-category_list: [ ios, knowledge_base, translation, eli5 ]
+category_list: [ ios, knowledge_base, translation, eli ]
 
 # HTML Compression
 # - https://jch.penibelst.de/
@@ -294,10 +294,10 @@ defaults:
       comments: true
       sidebar:
         nav: "knowledge_base"
-  # _eli5
+  # _eli
   - scope: 
-      path: "_eli5"
-      type: eli5
+      path: "_eli"
+      type: eli
     values:
       layout: single
       read_time: true
@@ -305,7 +305,7 @@ defaults:
       share: true
       comments: true
       sidebar:
-        nav: "eli5"
+        nav: "eli"
   # _translation
   - scope:
       path: "_translation"

@@ -1,8 +1,8 @@
 ---
-title: ELI5
+title: ELI
 layout: category
-permalink: /eli5/
-taxonomy: eli5
+permalink: /eli/
+taxonomy: eli
 classes: wide
 sort_by: date
 sort_order: reverse

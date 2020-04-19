@@ -8,9 +8,7 @@ main:
     url: /knowledge_base/
   - title: "Translation"
     url: /translation/
-  - title: "ELI5"
-    url: /eli5/
-  - title: "App stuff"
-    url: /app_stuff/
+  - title: "ELI"
+    url: /eli/
   - title: "About me"
     url: /about_me/
