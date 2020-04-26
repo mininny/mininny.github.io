@@ -8,7 +8,7 @@ date: 2020-04-22
 # Method Swizzling
 Method Swizzling: If you're an iOS Developer, you may have heard of it; if you haven't, you should. 
 
-The **TDLR** description of Method Swizzling is that it allows you to <U>switch the implementations of methods</U>. This allows you to control the flow of methods that you have no direct access to, such as UIViewController's system methods. 
+The **TLDR** description of Method Swizzling is that it allows you to <U>switch the implementations of methods</U>. This allows you to control the flow of methods that you have no direct access to, such as UIViewController's system methods. 
 
 This is achieved through Objective-C's interesting Runtime library support, which is worth a look. 
 
