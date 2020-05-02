@@ -16,14 +16,19 @@ This is achieved through Objective-C's interesting Runtime library support, whic
 Objective-C's method invocations are decided in runtime, meaning that we have some ability to modify the behavior of the code directly in runtime. 
 
 Unlike other languages that directly "call" or "invoke" any given functions, Objective-C instead sends a message to the object, telling it to invoke a message. This is done in a form of selector, which can be understood as a Objc's way of managing a list of the methods in a class. For example, when this is called,
-```objective-c
+
+```
 - (void)sendMessage:(NSString *)message;
 ```
+
 this is translated into `sendMessage:message`, and gets sent to the object like this: 
-```objective-c
+
+```
 [person sendMessage:message];
 ```
+
 Now when compiling, the compiler will look at this code and replace it with a runtime API called `objc_msgSend()` like this:
+
 ```objective-c
 objc_msgSend(person, @selector(sendMessage:), message);
 ```
