@@ -5,10 +5,6 @@ tag: [ios]
 date: 2020-05-03
 ---
 
-This is a finished but unfinalized post.
-{: .notice--info}
-
-
 When you work with iOS applications and do some UI-work with the app, you probably have added custom images to your app. 
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/posts/20200503/xcode-image-view.png" alt="">

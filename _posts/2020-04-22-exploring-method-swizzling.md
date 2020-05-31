@@ -3,12 +3,13 @@ title:  "Exploring Method Swizzling in iOS💨"
 category: ios
 tag: [ios, swift, objc]
 date: 2020-04-22
+last_modified_at: 2020-05-31
 ---
 
 # Method Swizzling
 Method Swizzling: If you're an iOS Developer, you may have heard of it; if you haven't, you should. 
 
-The **TLDR** description of Method Swizzling is that it allows you to <U>switch the implementations of methods</U>. This allows you to control the flow of methods that you have no direct access to, such as UIViewController's system methods. 
+Method Swizzling allows you to <U>switch the implementations of methods</U>. This allows you to control the flow of methods that you have no direct access to, such as UIViewController's system methods. 
 
 This is achieved through Objective-C's interesting Runtime library support, which is worth a look. 
 
@@ -29,7 +30,7 @@ this is translated into `sendMessage:message`, and gets sent to the object like 
 
 Now when compiling, the compiler will look at this code and replace it with a runtime API called `objc_msgSend()` like this:
 
-```objective-c
+```
 objc_msgSend(person, @selector(sendMessage:), message);
 ```
 
@@ -60,7 +61,6 @@ extension UIViewController {
     func swizzledViewWillAppear() {
         print("Swizzled!")
     }
-
 }
 ```
 
@@ -72,6 +72,88 @@ If we look at this, what we are doing is, we are taking the selector of each met
 Now, the selector of each method points to the opposite implementation of the method, and we have successfully **swizzled** the methods, or manipulated Objc's message dispatch!
 
 With this, you can successfully invoke your own functions when you need/want them, and have more control over what you do. 
+
+## Callling original method
+
+As I explained, method swizzling uses Objective-C's runtime API to swap the implementations of the functions in the message dispatch of the specified classes. Effectively, this changes the entire behavior of the said classes. 
+
+And if you're using method swizzling to add logging features to existing APIs, you may want to call the original implementation of the swizzled method. 
+
+If the swizzeld method is inside a subclass of the original class, all you need to do is call the swizzled method again on `self`. 
+```swift
+@objc
+func swizzledViewWillAppear() {
+    self.swizzledViewWillAppear() // This will call the original UIViewController's ViewWillAppear
+}
+```
+This will not cause an infinite method call loop, but will rather call the original implementation of the swizzled method. Neat, right?
+
+But this is where the problem arises. 
+However, if you declare your swizzled method inside a class that is not related with the original class, you can not invoke the original method for that given instance. 
+
+```swift
+extension VideoTester {
+    func swizzleMethod() {
+        let originalSelector = #selector(RTCVideoRenderer.renderFrame(_:))
+        let swizzledSelector = #selector(swizzledRenderFrame(_:))
+        
+        guard let originalMethod = class_getInstanceMethod(RTCVideoRenderer.self, originalSelector), 
+              let swizzledMethod = class_getInstanceMethod(UIViewController.self, swizzledSelector) else { return }
+
+        method_exchangeImplementations(originalMethod, swizzledMethod)
+    }
+
+    @objc
+    func swizzledRenderFrame(_ frame: RTCVideoFrame?) {
+        print("Swizzled with \(frame)")
+
+        // call original method?
+    }
+}
+```
+
+Here, we have WebRTC's `RTCVideoFrame`, and we are trying to log a message with the given frame whenever `renderFrame(_:)` is called. What we can do is the following. 
+
+Obtain the original function's `IMPL` by `class_getMethodImplementation`, and find the correct `self` to invoke the implementation on. 
+```swift
+let observingVideoRenderer = RTCVideoRenderer()
+
+typealias OriginalIMPLType = @convention(c) (AnyObject, Selector) -> Void // This is bare function pointer. All Obj-C methods have the receiver and message as their first two parameters.
+let selector = #selector(RTCVideoRenderer.renderFrame(_:))
+let originalIMPL = class_getMethodImplementation(RTCVideoRenderer.self, selector) // save the IMPL of the original method
+    
+@objc
+func swizzledRenderFrame(_ frame: RTCVideoFrame?) {
+    print("Swizzled with \(frame)")
+
+    unsafeBitCast(originalIMPL, to: OriginalIMPLType.self)(observingVideoRenderer, selector) // Call the original method on observingVideoRenderer
+}
+```
+
+So we `can` call the original method by saving the implementation of the original method, and calling the implementation on the instance.
+
+---
+
+However, if we have multiple instances of `RTCVideoRenderer`, because the implementation of the method is exchanged in terms of the class itself, multiple instances will call the same swizzled method. If we are not subclassing the original method, we do not know the `self` that initially triggered the method, therefore, we can not call the original method via `unsafeBitCast`.
+
+One way to solve this is `subclassing`.
+
+## Use inheritance...
+
+Simply, do not use method swizzling when possible. If it is possible, just override the desired method in the subclass. 
+
+```swift
+class LoggableRTCVideoRenderer: RTCVideoRenderer {
+    override func renderFrame(_ frame: RTCVideoFrame?) {
+        super.renderFrame(frame)
+        print("Override with \(frame)")
+    }
+}
+```
+
+Just like that, we can have the same control over the method without taking risks with method swizzling. 
+
+Method swizzling can be useful, but it does have limitations as it changes the implementation by class, not by instances. So, it's best if you could use simpler options like overriding to achieve what you wanted to do with method swizzling. 
 
 ## Safety...
 However,... this code comes with many risks and dangers. 
