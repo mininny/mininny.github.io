@@ -5,8 +5,6 @@ tag: [WebRTC]
 date: 2020-06-07
 ---
 
-## Video Codecs
-
 What are codecs? 
 
 **Video codecs** are implementation of video coding formats, and provide encoding and decoding for digital video, often including the use of video compression/decompression.
