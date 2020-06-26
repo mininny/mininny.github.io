@@ -106,6 +106,7 @@ struct Adder {
 }
 ```
 
+
 ---
 
 # String Initializer with Access to Uninitialized Storage - SE-0263
@@ -218,6 +219,7 @@ extension Collection where Element: Equatable {
     public func subranges(of element: Element) -> RangeSet<Index>
 }
 ```
+
 
 ---
 
