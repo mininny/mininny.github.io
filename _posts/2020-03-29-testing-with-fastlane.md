@@ -1,7 +1,7 @@
 ---
 title:  "Testing Multiple iOS Test Schemes with Fastlane and Generating Test Results"
 category: ios
-date: 2020-03-29
+date: 2020-10-03
 ---
 
 Sometimes, testing on your own mac becomes too extensive when you have hundreds of testing to run on your project.
