@@ -1,7 +1,7 @@
 ---
 title:  "Testing Multiple iOS Test Schemes with Fastlane and Generating Test Results"
 category: ios
-date: 2020-03-29
+date: 2020-10-03
 ---
 
 Sometimes, testing on your own mac becomes too extensive when you have hundreds of testing to run on your project.
@@ -158,6 +158,8 @@ gem 'xcov', :git => "https://github.com/mininny/xcov.git"
 ``` 
 to your Gemfile.
 
+> This change is now merged into the main code, so you don't need this extra step! :) 
+
 With that, you can use xcov like you normally would, and you will get a collate test coverage report in your output folder. 
 
 ### Sending a Slack Notification 🚀
@@ -184,6 +186,3 @@ to only send notification when your test has failed.
 ---
 
 There were many new changes to code coverage report in Xcode 11, but we'll look at the changes and the magic that goes behind xcodebuild later.
-
-> TLDR: `multi_scan` has problem of overwritting test result files. [Fix it by moving file to a temporary directory](#test-results). 
-> `xcov` does not merge multiple xccovreports. [Fix it by merging it with xcrun xccov merge from my PR](#generating-a-coverage-report-for-multiple-test-result-files)
